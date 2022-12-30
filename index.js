@@ -17,6 +17,7 @@ startBtn.addEventListener("click", () => {
     if(paused){
         paused = false;
         timeDisplay.style.color = "#40c437";
+        document.querySelector("#startBtn").innerHTML = "Start";
         startTime = Date.now() - elapsedTime;
         intervalId = setInterval(updateTime, 1);
     }
@@ -25,6 +26,7 @@ startBtn.addEventListener("click", () => {
 pauseBtn.addEventListener("click", () => {
     if(!paused){
         paused = true;
+        document.querySelector("#startBtn").innerHTML = "Resume"; 
         timeDisplay.style.color = "#FF0000";
         elapsedTime = Date.now() - startTime;
         clearInterval(intervalId);
@@ -35,6 +37,7 @@ resetBtn.addEventListener("click", () => {
     paused = true;
     clearInterval(intervalId);
     timeDisplay.style.color = "#40c437";
+    document.querySelector("#startBtn").innerHTML = "Start";
     let startTime = 0;
     elapsedTime = 0;
     currentTime = 0;
